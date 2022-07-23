@@ -1,0 +1,12 @@
+Jenkins is a tool that we use for continous integration and continous deployment.
+It is written in java.
+So before installing jenkins we need to have jdk1.8 or above.
+
+
+Installation and running jenkins
+1. Check java installed.
+2. Download Jenkins.war file
+3. Go to cmd and run command java -jar jenkins.war --httpPort=9191. By default it runs on 8080. in the console you will find the password
+4. On browser go to http://localhost:9191.
+5. Provide admin password and complete the request.
+

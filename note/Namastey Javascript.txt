@@ -1,0 +1,846 @@
+1. How Javascript Works & Execution Context
+	
+	Execution Context is the wrapper/environment around our existing code;
+	Execution Context is of 2 types:- Global Execution Context & Functional Execution Context.
+
+	a. Everything in Javascript happens inside an Execution Context.
+	b. Execution Context has 2 components.
+		i. Memory component a.k.a. variable environment -> Here all variable and functions are stored as key-value pairs.
+		ii. Code component a.k.a. Thread of execution -> Here Code is executed one line at a time.
+	c. Javascript is a synchronous, single threaded language. It means JS can execute one command at a time in a specific order.
+
+
+	Global Execution Context comprises of the following -
+		1.Global Object which is window object.
+		2.'this'
+		3.Your code
+	
+	Functional/Local Execution Context comprises the folloing - 
+		1. Our Code
+		2. 'this' 
+	
+2. How Javascript Code is Executed & CallStack
+
+	Phase 1 : Memory Creation Phase ---> This is when hoisting happens.
+		a. Javascript skims through the whole code and identifies the variables and functions
+		b. At the time of skimming variables are assigned "undefined" as value.
+		c. The functions are literraly copied/stored in execution context.   
+	Phase 2 : Code Execution Phase
+		a. Javascript program is executed line by line.
+		b. Variables identified in phase 1 are assigned their desired value and functions are invoked.
+		c. Whenever Javascript functions are invoked, a local execution context is created inside global execution context.
+		
+	CallStack : 
+		1. Javascript manages execution of all local and global execution context using CallStack.
+		2. CallStack is a stack Data Structure wherein global execution context is stored at the bottom of stack, and local execution context are placed above it.
+		3. If execution context is created, it is pushed into the stack. 
+		4. Once the execution context completes its execution, it is poped out of stack.
+	CallStack are known by other fancy names
+		a. Execution context Stack.
+		b. Program Stack.
+		c. Control Stack.
+		d. Runtime Stack.
+		e. Machine Stack.
+		
+3. Hoisting in Javascript
+	hoisting is a behaviour in which we can access variables and functions even before they are declared.
+	Another Definition from mdn :- JavaScript Hoisting refers to the process whereby the interpreter appears to move the declaration of functions, variables or classes to the top of their scope, prior to execution of the code.
+	In terms of variables and constants, keyword var is hoisted and initialized with undefined, let and const are hoisted but not initialzed, thus they lie in temporal dead zone during hoisting.
+	Watch this video(by Geeky Shows) for Hoisting - https://www.youtube.com/watch?v=WooWDj9q188
+	Example Of Variable Hoisting
+			console.log(num); 
+			var num; 
+			num = 6;
+			console.log(num);
+			Output:- undefined
+					6
+
+	Example Of Function Hoisting
+		catName("Tiger");
+
+		function catName(name) {
+  			console.log("My cat's name is " + name);
+		}
+		Output:- My cat's name is Tiger.
+
+4. How function works with JS & Variable Environment.
+
+5.Shortest JS Program, window & this keyword.
+	a. An Empty file is the shortest JS Program. 
+	b. At global level "this" points to global window object. "this" is created for functional exection context and global execution context.
+	c. Window is global object which is created along with Global Execution Context
+
+6. Undefined v/s not defined in javascript
+	null -> null is an actual value. typeof(null) is object.
+	undefined -> it means variable is declared but not initialized. typeof(undefined) is undefined.
+
+7. Scope Chain, Scope & Lexical Environment. 
+	a. lexical means one inside other.
+	b. Scope chain -> Chain of References to the outside lexical environment.
+
+8. Let & const, Temporal Dead Zone.
+	a. Temporal Dead Zone is prominent for "let" & "const". It is the time when a let variable is hoisted till it is initialized some value.
+	b. Reference Error -> Usually happens when we try to access a variable that is present in temporal dead zone or not present in our program.
+	c. Type Error -> Usually happens when we try to re-assign a variable of type const.
+	d. Syntax Error -> there is syntactical error in the code.
+	e. "var", "temp" & "const" are also hoisted. var is hoisted into Global scope where as let & const hoisted inside seperate space (either Script or Block)
+
+9. Block Scope & Shadowing in JS
+	a. block in javascript combines multiple statements into one group. We group multiple statements together in block so that we can use it where javascript expects one statement.
+	simplest block is {}
+	b. block scope refers to all variables and functions that we can use inside the block.
+	c. let & const are block scoped. so let & const are accessible inside block.
+	d. Shadowing : same name of variable but different usage according to initialization.
+	e. Illegal Shadowing : let a = 20; {var a = 20;}
+
+10. Closure in JS
+	a. function bundled with lexical environment/reference is closure.
+	In simple words, it is a feature in which inner function has access to outer function variable.
+	b. Each and every function in javascript has access to its outer lexical environment(means access to variables and functions which are present in environment of its parent)
+		So even when a function is executed in some other scope which is not its original scope, it still remembers the outer lexical environment wher it was originally present in the code. 
+	c. Common uses of closures
+		i. Module Design Pattern.
+		ii. Currying.
+		iii. Function like once.
+		iv. memoize
+		v. maintaining state in async world
+		vi. setTimeouts
+		vii. Iterators.
+		viii. Data hiding
+			& many more....
+			
+11. setTimeout + Closures interview Questions
+	Example explained
+
+12. Crazy Js Interview
+	
+13. First Class Functions
+		a. Function Statement 
+			function a() {console.log("a called");}
+		b. Function Expression
+			var b = function() {console.log("b called");}
+	NOTE : DIFFERENCE BETWEEN FUNCTION EXPRESSION AND FUNCTION STATEMENT IS "HOISTING"
+		c. Function Declaration 
+			is also known as Function Statement or Function Definition.
+		d. Anonymous Function
+			These are function without a name. they are used at places where function are used as values.
+			e.g. var b = function() {console.log("b called");}
+			Function Statement can not be used as Anonymous values.
+		e. Named Function Expression.
+			e.g. var a = function xyz() {
+				console.log("xyz called");
+			}
+		f. First Class Functions.
+			The ability of functions to be used as values and can be passed as argument to another function and to be returned from functions.
+			In Simple words you can treat functions like variables.			
+
+14. Callback Functions in JS. ft. Event Listeners.
+	function being passed as an argument to another function is called callback function.
+	the function taking that argument is called higher order function.
+	for example :- 
+	function a() {
+		console.log("Namaste")
+	}
+	function y(x){
+		x();
+	}
+	y(a);
+	here y is higher order function and x is callback function.
+
+15. Asyncronous Javascript & Event Loops
+	Call back queue -> This is where our asynchronous code gets pushed to, and waits for the execution.
+	Micro task queue -> Apart from Callback Queue, browsers have introduced one more queue which is “Job Queue”, reserved only for new Promise() functionality. 
+				So when you use promises in your code, you add .then() method, which is a callback method. 
+				These `thenable` methods are added to Job Queue once the promise has returned/resolved, and then gets executed.
+	Note ->	Micro-task queue has more priority than callback queue.
+	
+	Event Loop -> The event loop is a constantly running process that monitors both the callback queue, and the call stack.
+	If the call stack is not empty, the event loop waits until it is empty and places the next function from the callback queue to the call stack. 
+	If the callback queue is empty, nothing will happen.
+
+	Read the following article:- 
+	https://www.javascripttutorial.net/javascript-event-loop/#:~:text=The%20event%20loop%20is%20a,queue%20and%20the%20call%20stack.&text=The%20JavaScript%20engine%20places%20the%20following%20function%20call%20on%20the,executes%20it%20after%20the%20console.
+
+16. JS Engine Exposed, Google V8 architecture.
+	JavaScript Runtime Environment includes 
+		JS Engine - Heart of JavaScript Run time Environment.
+		Set of API's
+		Event Loop
+		callback queue
+		micro-task queue
+
+Js Engine is a software which follows 3 phases.
+	a. Parsing :- Entire code is given to Syntax parser which converts our code into Abstract Syntax Tree.
+	b. Compilation :- JavaScript uses JIT Compiler to compile our code. There are different kind of optimizations performed in JIT for example :- in-lining, copy elision & inline caching.
+	c. Execution :- This phase uses Memory Heap and Call Stack for Execution. It also has Garbage collector which frees up memory heap space. Garbage Collector uses Mark and Sweep Algorithm to free up memory space.
+
+17. Trust Issues with setTimeOut
+
+18. Higher Order Functions		
+
+19. Map, Filter & Reduce in Javascript.
+
+------------------------------------------------------------------------------------------------------------------------------
+
+	Immediately Invoked Function Expression (IIFE)
+
+It is a js function that runs as soon as it is defined.
+It is also called as Self executing anonymous function.
+It contains 2 parts.
+1. Anonymous function enclosed with in group operator'()'.
+2. adding () at the end of function expression.
+
+	example :- 1. (function(){console.log("IIFE");})()
+		   2. (function(a,b){console.log(a+" "+b);})(10,20); // output 10 20
+ ------------------------------------------------------------------------------------------------------------------------------
+There are 7 primitive data types: string, number, bigint, boolean, null, undefined, and symbol.
+
+Undefined :- It is used for variable that does not exist or have not been assigned a value.
+-------------------------------------------------------------------------------------------------------------------------------
+
+	Asynchronous v/s Synchronous
+
+Synchronous means to run our code line by line.
+Asynchronous means that the code will take some time to execute and the normal execution of javascript program would stop until that code gets executed.
+------------------------------------------------------------------------------------------------------------------------------
+
+	How Js handles asynchronous code?
+
+When Js encounters asynchronous code (setTimeout or API calls) then it sends it out to web api.
+This way Javascript doesn't block anything and continues executing rest of the code.
+------------------------------------------------------------------------------------------------------------------------------ 
+
+	How to create a promise in javscript?
+
+A promise is an object that may produces a value some time in the future: either a resolved value, or a reason that it's not resolved (e.g., a network error occurred). 
+A promise may be in one of 3 possible states: fulfilled, rejected, or pending.
+Promises are not callbacks. A promise represents the future result of an asynchronous operation.
+Creating Promises.
+const promise = new Promise((resolve,reject)=>{
+	resolve("promise resolved");
+	or
+	reject("promise rejected, error occured");
+	or some time taking code.
+	// it is not necessary to have resolve and reject functions. whats necessary is the callback function which is passed as argument to new Promise(); 
+})
+KEPT SOME WHERE IN THE CODE
+
+promise
+.then((response)=>{
+	console.log(response) // will print "promise resolved".
+})
+.catch(error=>{
+	console.log(error); // will print "promise rejected, error occured"
+})
+
+	https://www.javascripttutorial.net/es6/javascript-promises/
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+	How to copy an object in javascript and differenece between shallow copy and deep copy?
+
+Three ways of Copying an object and difference between shallow & deep copy. 
+	a. Objecy.assign()
+	b. Spread operator
+	c. JSON.stringify() and JSON.parse() methods
+Syntax:-
+const person = {
+    firstName: 'John',
+    lastName: 'Doe'
+};
+let p1 = {...person}; 	// performs shallow copy.
+let p2 = Object.assign({}, person);	// performs shallow copy.
+let p3 = JSON.parse(JSON.stringify(person)); 	// performs deep copy
+Shallow Copy
+	if you use the assignment operator for a reference value, it will not copy the value. 
+	Instead, both variables will reference the same object in the memory.
+Deep Copy
+	The newly created variable will be disconnected from variable it is connected.
+------------------------------------------------------------------------------------------------------------------------------------------------
+	What is Babel?
+
+Babel :- Babel is a transpiler that is mainly used to convert ECMAScript 2015+ code into ES5 code, which is compatible version of JavaScript in current and older browsers.
+	Also it handles converting JSX to JavaScript code so that React can render our applications in browser.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+	What is Webpack?
+
+Webpack :- Webpack is a dependency analyzer and module bundler.
+For example, if module A requires B as a dependency, and module B requires C as a dependency, then webpack will generate a dependency map like C -> B -> A. 
+In practice it is much more complicated than this, but the general concept is that Webpack packages modules with complex dependency relationships into bundles. 
+Regarding webpack's relationship with babel: When webpack processes dependencies, it must turn everything into javascript because webpack works on top of javascript.
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+	How to handle asynchronous calls/request in javascript?
+
+Using Async-Await, using callbacks and using Promises.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+	Explain Async-Await along with example.
+The async / await is syntactic sugar for promises.
+https://www.javascripttutorial.net/es-next/javascript-async-await/
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+	What are callbacks?
+Callback is a function that you pass into another function as an argument for executing later.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+	Regular Expressions in javascript.
+
+https://www.javascripttutorial.net/javascript-regular-expression/
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+	Exception Handling
+
+https://www.javascripttutorial.net/javascript-try-catch/
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+	.call(), apply(), bind() in js
+
+call -> https://www.javascripttutorial.net/javascript-call/
+	It calls the method, taking the owner object as an argument. 
+	The keyword this refers to the “owner” of the function or the object it belongs to.
+for example:-
+	var employee = {
+        details: function() {
+            return this.name + " " + this.id;
+        }
+    }
+    var emp1 = {
+        name: "Geeks",
+        id: "234412",
+    }
+    var emp2 = {
+        name: "G4G",
+        id: "434556",
+    }
+    var x = employee.details.call(emp2); // in details function, this will refer to emp2;
+
+apply -> The apply() method is used to write methods, which can be used on different objects. 
+	It is different from the function call() because it takes arguments as an array.
+for Example:- example from https://www.geeksforgeeks.org/javascript-function-apply/
+	var student = {
+            details: function(section, rollnum) {
+                return this.name + "<br>" + this.class
+                    + " " + section + "<br>" + rollnum;
+            }
+        }
+        var stud1 = {
+            name:"Dinesh",
+            class: "11th",
+        }
+        var stud2 = {
+            name:"Vaibhav",
+            class: "11th",
+        }
+          
+        var x = student.details.apply(stud2, ["A", "24"]); 
+
+bind -> read from https://www.geeksforgeeks.org/javascript-function-binding/
+
+for example:- 
+	The bind() method creates a new function. It binds an object to function. This object has to be passed as argument to bind.
+	var geeks = {
+	name : "ABC",
+	printFunc: function(){
+   	document.write(this.name);}
+   	}
+     
+  	var printFunc2= geeks.printFunc.bind(geeks);
+  	printFunc2();
+
+as well as videos on this by Akshay Saini.
+# Study this concept which are mentioned below.
+	
+-------------------------------------------------------------------------------------------------------------------------------------------------
+	Partial Function & Currying in Javascript
+	Partials are basically functions that return functions with some already predefined arguments and need some arguments to be completed.
+	Currying is applied on partial functions.
+	Currying is when you break down a function that takes multiple arguments into a series of functions that each take only one argument.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+	Event Bubbling, Capturing aka Trickling in Javascript
+
+https://www.youtube.com/watch?v=aVSf0b1jVKk
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+	Throttling in Javascript
+	
+More info on Akshat Saini Video on Throttling
+
+Example of throttling
+Imagine yourself as a 7-year-old toddler who loves to eat chocolate cake! 
+Today your mom has made one, but it's not for you, it's for the guests! You, being spunky, keep on asking her for the cake. 
+Finally, she gives you the cake. But, you keep on asking her for more. 
+Annoyed, she agrees to give you more cake with a condition that you can have the cake only after an hour. 
+Still, you keep on asking her for the cake, but now she ignores you. 
+Finally, after an interval of one hour, you get more cake. 
+If you ask for more, you will get it only after an hour, no matter how many times you ask her.
+
+This is what throttling is!
+
+Throttling is a technique in which, no matter how many times the user fires the event, the attached function will be executed only once in a given time interval.
+
+Practical Implementation -------> Need to do.
+
+Debouncing and throttling are recommended to use on events that a user can fire more often than you need them to.
+Examples include window resizing and scrolling. 
+The main difference between throttling and debouncing is that throttling executes the function at a regular interval, while debouncing executes the function only after some cooling period.
+Debouncing and throttling are not something provided by JavaScript itself. 
+They’re just concepts we can implement using the setTimeout web API. 
+Some libraries like underscore.js and loadash provide these methods out of the box.
+Both throttling and debouncing can be implemented with the help of the setTimeout function.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+	Debouncing in Javascript
+
+In the debouncing technique, no matter how many times the user fires the event, the attached function will be executed only after the specified time, once the user stops firing the event.
+
+Consider the same cake example. 
+This time you kept on asking your mom for the cake so many times that she got annoyed and told you that she will give you the cake only if you remain silent for one hour.
+This means you won’t get the cake if you keep on asking her continuously - you will only get it one hour after last time you ask, once you stop asking for the cake. 
+This is debouncing.
+
+Practical Implementation -------> Need to do.
+
+Debouncing in JavaScript is a practice used to improve browser performance. 
+There might be some functionality in a web page which requires time-consuming computations. 
+If such a method is invoked frequently, it might greatly affect the performance of the browser, as JavaScript is a single threaded language. 
+Debouncing is a programming practice used to ensure that time-consuming tasks do not fire so often, that it stalls the performance of the web page. 
+In other words, it limits the rate at which a function gets invoked.
+
+
+More info on Akshay Saini Video on Debouncing.
+Brilliant Example on --> https://www.telerik.com/blogs/debouncing-and-throttling-in-javascript
+-------------------------------------------------------------------------------------------------------------------------------------------------
+	Event Delegation in Javascript
+It is based on Event Bubbling.
+Event Delegation is basically a pattern to handle events efficiently. 
+Instead of adding an event listener to each and every similar nested element, 
+we can add an event listener to a parent element and call an event on a particular target using the .target property of the event object.
+
+for Example.
+Suppose there are 3 nested div's(having id's as -> child, parent, grandparent). 
+Each div has click event listener attached with it.
+Now without event delegation, if we click on child div, then click event associated with parent and grandparent will also be triggered.
+We did not want that un-necessary triggering of events to happen.
+So what we do is we add click event listener only to grand-parent, and use target property to determine on which div we have clicked.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+	CORS, Preflight Request, OPTIONS Method | Access Control Allow Origin Error
+CORS -> Cross Origin Resource Sharing. It is a mechanism which uses additional http headers to tell the browser, 
+	whether a specific web app can share resource with another web app, but both web apps should have different origin.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+	"this" in javascript
+In JavaScript, the this keyword refers to an object. Which object depends on how this is being invoked (used or called).
+
+Content from w3schools.com
+1. In an object method, this refers to the object.
+	Example: 
+	const person = {
+  		firstName: "John",
+  		lastName: "Doe",
+  		id: 5566,
+  		fullName : function() {
+    			return this.firstName + " " + this.lastName;
+  		}
+	};
+
+person.fullName();  // output -> John Doe
+
+2. Alone, this refers to the global object.
+	Example
+	let x = this;
+	console.log(x); // prints global object
+
+3. In strict mode, when used alone, this also refers to the global object:
+	Example
+	'use strict'
+	let x = this;
+	console.log(x); // prints global object.
+
+4. In a function, this refers to the global object.
+	Example
+	function myFunction() {
+  		return this;
+	}
+	console.log(myFunction()); // prints global object.
+
+5. In a function, in strict mode, this is undefined.
+	Example
+	"use strict";
+	function myFunction() {
+  		return this;
+	}
+	console.log(myFunction()); // return undefined.
+
+6. In an event, this refers to the element that received the event.
+	Example
+	<button onClick="this.style.display='none'">Click to Remove Me!</button> // on clicking this button, the button will be removed.
+7. Methods like call(), apply(), and bind() can refer this to any object.
+
+Advanced Knowledge about this.
+	const obj = {
+	  bool: true,
+	  myFunc: myFunc,
+	}
+
+	obj.myFunc()
+In above example this will point to Object 'obj'.
+When we had nothing left of the .(dot) so it defaulted to the window object. But in this example, we have the object obj.
+If we do 
+	myFunc() 
+We again get the 'window' object. So, we can see that the value of this depends on how and where are we doing the calling.
+
+What we did above in example is called 'implicit binding'.
+
+There is another way to use 'this. 
+'Explicit binding' is when you force a function to use a certain object as its 'this'.
+We can do explicit binding using .call, .bind & .apply
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Flattening an array in javascript
+	Input: [1,2,3,4,5,[6,[7,8,9]]] 
+	Output: [1,2,3,4,5,6,7,8,9]
+
+const flattenedArray = (arr) => {
+	const newFlatArray = arr.reduce(accumulator,item) => {
+		if(item.isArray) {
+			accumulator = accumulator.concat(flattenedArray[item]);
+		}
+		else {
+			accumulator = [...accumulator,item];
+		}
+		return accumulator;	
+	}
+	return newFlatArray;
+}
+***********************************************
+Flattening of object in javascript
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------
+	use strict in javascript
+--------------------------------------------------------------------------------------------------------------------------------------------------
+	polyfills for forEach, map, filter, reduce, bind, Promise.all
+names = ["Amit","Yash","Ram","Rita"];
+Polyfills for forEach
+
+Array.prototype.ourForEach = function (callBack) {
+	//this is representing the array on which ourForEach is used.
+  for (var i = 0; i < this.length; i++) {
+    callback(this[i], i, this) // currentValue, index, array
+  }
+};
+names.ourForEach(name => console.log(name));
+***********************************
+Polyfills for map
+
+Array.prototype.ourMap = function(callback) {
+  var arr = [];
+  for (var i = 0; i < this.length; i++) {
+    arr.push(callback(this[i], i, this))
+  }
+  return arr // finally returning the array
+}
+************************************
+
+Polyfills for filter
+Array.prototype.filterAlbums = function(callback, context) {
+  arr = []
+  for (var i = 0; i < this.length; i++) {
+    if (callback.call(context, this[i], i, this)) {
+      arr.push(this[i])
+    }
+  }
+  return arr;
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+Phases Of JavaScript Event.
+1. Capturing Phase
+2. Target Phase
+3. Bubbling Phase
+
+When a click event happens (or any other event that propagates):
+
+The event travels down from window, document, root element and through the ancestors of the target element (capture phase)
+The event occurs on the target (the target phase)
+Finally, the event bubbles up through the target's ancestors until the root element, document and window (the bubble phase).
+
+This mechanism is named event propagation
+More at https://javascript.plainenglish.io/3-phases-of-javascript-event-2ff09aa76b03
+--------------------------------------------------------------------------------------------------------------------------------------------------
+JavaScript Array methods (YT Playlist -> https://www.youtube.com/playlist?list=PLhfxuQVMs-nyC0mc_2pQQpe94RroEDBg5)
+1. forEach()
+2. filter()
+3. map()
+4. reduce()
+
+5. push()
+6. pop()
+7. shift()
+8. unshift()
+################################################################################################################################
+9. slice()
+
+The slice() method returns selected elements in an array, as a new array.
+The slice() method selects from a given start, up to a (not inclusive) given end.
+The slice() method does not change the original array.
+
+Syntax:-
+array.slice(start, end)
+
+start-> 
+Optional.
+Defines Start index in array. Default is 0.
+Negative numbers select from the end of the array.
+
+end-> 
+Optional.
+Defines end index in array. Default is last element.
+Negative numbers select from the end of the array.
+************************************************************************************
+10. splice()
+  
+It adds and/or removes array elements.
+It overwrites the original array thus it is not recommended way.
+
+Syntax:-
+array.splice(index, howmany, item1, ....., itemX);
+
+index -> 
+a. Required.
+b. Indicates the index from where items will be added or removed.
+c. Negative value defines the position from the end of the array.
+
+howMany -> 
+a. Optional.
+b. Indicates number of items to be removed at the given index.
+		
+item1, ..., itemX -> 
+a. Optional
+b. New elements(s) to be added.
+################################################################################################################################
+11. every()
+
+The every() method executes a function for each array element.
+The every() method returns true if the function returns true for all elements.
+The every() method returns false if the function returns false for one element.
+The every() method does not execute the function for empty elements.
+The every() method does not change the original array
+
+Syntax:-
+array.every(function(currentValue, index, arr), thisValue)
+a. function()	
+Required.
+A function to be run for each element in the array.
+**************************************************************************************************
+12. some()
+
+The some() method checks if any array elements pass a test (provided as a function).
+The some() method executes the function once for each array element:
+If the function returns true, some() returns true and stops.
+If the function returns false, some() returns false and stops.
+The some() method does not execute the function for empty array elements.
+The some() method does not change the original array.
+
+Syntax->
+array.some(function(value, index, arr), this);
+a. sunction	
+Required.
+A function to run for each array element.
+***************************************************************************************************
+13. find()
+The find() method returns the value of the first element that passes a test.
+The find() method executes a function for each array element.
+The find() method retuns undefined if no elements are found.
+The find() method does not execute the function for empty elements.
+The find() method does not change the original array.
+
+Syntax:- array.find(function(currentValue, index, arr),thisValue)
+
+function()	
+Required.
+A function to run for each array element.
+
+
+****************************************************************************************************
+14. includes()
+The includes() method returns true if an array contains a specified value.
+Note:- includes method also works for Strings as well.
+Syntax:-
+array.includes(element, start)
+
+a. element: 
+Required.
+The value to search for.
+
+b. start
+optional
+Start position. Default is 0.
+*********************************************************************************************
+15. indexOf()
+The indexOf() method returns the first index (position) of a specified value.
+The indexOf() method returns -1 if the value is not found.
+The indexOf() method starts at a specified index and searches from left to right.
+By default the search starts at the first element and ends at the last.
+Negative start values counts from the last element (but still searches from right to left).
+
+Note:- This is also available for string.
+
+Syntax:-
+array.indexOf(item, start)
+
+a. item 
+Required.
+The value to search for.
+
+b. start
+Optional.
+Where to start the search.
+Default value is 0.
+Negative values start the search from the end of the array.
+**********************************************************************************************
+16. lastIndexOf()
+The lastIndexOf() method returns the last index (position) of a specified value.
+The lastIndexOf() method returns -1 if the value is not found.
+The lastIndexOf() starts at a specified index and searches from right to left.
+By defalt the search starts at the last element and ends at the first.
+Negative start values counts from the last element (but still searches from right to left).
+
+Syntax:- array.lastIndexOf(item, start)
+a. item
+Required.
+The value to search for.
+
+b.start
+Optional.
+Where to start the search.
+Default is the last element (array.length-1).
+Negative start values counts from the last element (but still searches from right to left).
+*********************************************************************************************
+17. find()
+The find() method returns the value of the first element that passes a test.
+The find() method executes a function for each array element.
+The find() method retuns undefined if no elements are found.
+The find() method does not execute the function for empty elements.
+The find() method does not change the original array.
+
+Syntax:-
+array.find(function(currentValue, index, arr),thisValue)
+*********************************************************************************************
+18. findIndex()
+
+#################################################################################################################################
+19. join()
+
+The join() method returns an array as a string.
+The join() method does not change the original array.
+Any separator can be specified. The default is comma (,).
+
+Syntax:-
+array.join(separator)
+
+seperator
+Optional.
+Determines the separator to be used.
+Default is a comma.
+************************************************************************************
+20. concat() 
+
+The concat() method concatenates (joins) two or more arrays.
+The concat() method returns a new array, containing the joined arrays.
+The concat() method does not change the existing arrays.
+syntax:-
+array1.concat(array2, array3, ..., arrayX);
+
+Note: This concat method can be used to concat 2 or more strings.
+################################################################################################################################
+21. sort()
+The sort() sorts the elements of an array.
+The sort() overwrites the original array.
+The sort() sorts the elements as strings in alphabetical and ascending order.
+
+How sort functions work in javascript.
+Sort function, sorts the data converting each element into string and then sequentially matching the each character using UTF-16 code unit values.
+so if we are sorting numbers as well then those particular number array will be converted to string and sequentially it will be matched with its UTF-16 code unit values.
+
+Important Note:- 
+Sorting alphabetically works well for strings ("Apple" comes before "Banana").
+But, sorting numbers can produce incorrect results.
+"25" is bigger than "100", because "2" is bigger than "1".
+You can fix this by providing a "compare function".
+
+Syntax:-
+array.sort(compareFunction);
+
+compareFunction->
+a. It is Optional.
+b. A function that defines a sort order. The function should return a negative, zero, or positive value, depending on the arguments:
+	function(a, b){return a-b}
+When sort() compares two values, it sends the values to the compare function, and sorts the values according to the returned (negative, zero, positive) value.
+
+example:- 
+var items = [
+  { name: 'Edward', value: 21 },
+  { name: 'Sharpe', value: 37 },
+  { name: 'And', value: 45 },
+  { name: 'The', value: -12 },
+  { name: 'Magnetic', value: 13 },
+  { name: 'Zeros', value: 37 }
+];
+
+// sort by value
+items.sort(function (a, b) {
+  return a.value - b.value;
+});
+
+// sort by name
+items.sort(function(a, b) {
+  var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+  var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+
+  // names must be equal
+  return 0;
+});
+
+*22. reverse() ->
+The reverse() method reverses the order of the elements in an array.
+The reverse() method overwrites the original array.
+
+Syntax
+array.reverse()
+####################################################################################
+22. flat()
+The flat() method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+************************************************************************************
+23. fill() 
+The fill() method fills specified elements in an array with a value.
+The fill() method overwrites the original array thus it is not preferred.
+Start and end position can be specified. If not, all elements will be filled.
+
+Syntax:-
+array.fill(value, start, end)
+
+a. value -> 
+Required.
+The value to fill in.
+
+b. Optional.
+The start index (position).
+Default is 0.
+
+c. Optional.
+The stop index (position).
+Default is array length.
+
+24. isArray()
+25. from()
+
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------
+	loadash important methods
+1. for deep comparison
+2. for debouncing

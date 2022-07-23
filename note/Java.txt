@@ -1,0 +1,70 @@
+1. Abstract Data Type (ADT) :In ADT user only needs to know what a data type can do, but not how it will be implemented. 
+	Most popular ADT's are 
+		a. Stack (Predefined class in java.util.Stack )
+		b. Queue (Has Predefined interface, best implemented with linkedList)
+		c. List	(Has ArrayList & LinkedList)
+.OOPS Concept
+	Inheritance
+	Polymorphism
+	Abstraction
+	Encapsulation
+
+Singleton Classes and its uses		
+
+===================================================================================================================================
+
+Stream API
+.stream is used on collection
+Example
+list1 = [2,4,50,21,22,67];
+list1.stream().filter(i=>i%2==0).collect(Collectors.toList())
+Methods
+stream().filter
+stream().map
+stream().reduce
+stream().empty
+stream().sorted ---> Sort by default configuration. If we want custom sorting then we can use comparator.
+stream().forEach
+stream().collect ----> Allow us to identify whether we want to collect as list, set, or MAP, via Collectors.toList(), Collectors.toSet(), COllectors.toMap()
+----------------------------------------------------------------------------------------------------------------------------------
+resttemplate methods(RestTemplate rt = new RestTemplate())
+# rt.getForObject(url,PayloadOfResponse.class)-> Returns the payload of type PayloadOfResponse.class. The Response is POJO.
+# rt.getForEntity(url,PayloadOfResponse.class)-> returns the payload of type PayloadOfResponse.class. The Response is of type ResponseEntity.
+# rt.exchange()
+
+---------------------------Learning Areas---------------------------------------------------------------------------------------------------
+Versioning of microservices
+RestTemplate does synchronous calling, but rest template is depricated, instead we use web client, which also supports asynchronous calling.
+
+git access token
+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
+another token
+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
+
+
+
+
+
+
+
+
+
+
+
+
+
+===================================================================================================================================
+
+Converting a string to a character array
+char []ch = str.toCharArray();
+---------------------------------------------------------------
+Converting a character array to String
+char [] ch = ['a','e','i','o','u'];
+String str = String.valueOf(ch);
+---------------------------------------------------------------
+String.valueOf() method converts different types of values into string. 
+We can convert int to string, long to string, boolean to string, character to string, float to string, double to string, object to string and char array to string.
+---------------------------------------------------------------
+Difference between length and .length()
+---------------------------------------------------------------
+There is nothing called as 'string' in java, It is always String

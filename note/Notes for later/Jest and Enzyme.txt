@@ -1,0 +1,6 @@
+Describe :- 
+It is a JEST method which contains one or more related tests.
+It takes 2 arguments, a string for describing test suite and a callback function for wrapping actual test.
+
+It/Test:
+This JEST method is used for writing the test case. 

@@ -1,0 +1,10 @@
+Figure:- to mark up a photo in a document.
+FigCaption:- define a caption for the photo in <Figure>
+Header:- A <header> element typically contains:one or more heading elements (<h1> - <h6>),logo or icon
+authorship information
+main:
+nav: used to create nav bar
+Section :- used to represent a generic section in html document
+Strong :- Used to make text bold
+
+

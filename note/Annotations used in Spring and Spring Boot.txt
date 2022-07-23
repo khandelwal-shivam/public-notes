@@ -1,0 +1,111 @@
+1.@AutoWired : - Autowiring is used for automatic dependency injection. In other words it enables us to inject the object dependency implicitly.
+		 It internally uses setter or constructor injection
+
+2.@Bean :- It is a method level annotation. 
+	   It tells that a method produces a bean to be managed by the Spring container.
+
+@Column
+
+3.@Component :- It is class level annotation.  
+			It marks a java class as a bean so that component scanning mechanism can pull it up can be used by Spring IOC container.
+	        It auto detects and auto configures the beans using classpath scanning. 
+	        It has different specializations like @Controller, @Repository and @Service.
+
+4.@ComponentScan(basePackages = "package name") :- Scan/Checks all component in the given package name
+
+5.@Configuration:- Used In Conjunction with @Bean.
+
+6.@Controller :- Indicates that the class is controller. It is used for traditional spring MVC framework Controller.
+
+7.@Embeddable :- It is used to attach the one class into another class.
+
+8.@EnableAutoConfiguration :- Automatically configures specific class or bean from classpath or any other way by which we want to configure.
+
+9.@EnableEurekaServer :- In microservices it enables the eureka server.
+
+10.@EnableWebSecurity :-  Used in Spring Security.
+
+11.@Entity(name = "course"):- It maps a java class to a table stored in database. 
+			      Entity name can be and can not be equal to table name in database. 
+			      If @Table annotation is not used then class name will be equal to entity name. 
+
+12.@GeneratedValue(strategy= GenerationType.Auto) :- It is used to automatically generate the value specially for id. 
+
+13.@GetMapping
+
+14.@Id :- It is used to mark a primary key for a table in the entity.
+
+15.@Import
+
+16.@LoadBalanced
+
+17.@Param("any custom variable") java-variable :- used to bind java-variable with custom variable. By this value in java-variable will be passed on to custom variable. Used mainly with @PathVariable
+
+18.@PathVariable :- used when we want to pass dynamic variable in RequestMapping or GetMapping
+
+19.@PostMapping
+
+20.@PostConstruct :- It is part of Bean Life cycle. 
+		     Spring calls methods annotated with @PostConstruct only once, just after the initialization of bean properties.
+		     For Example:- We can use @PostConstruct while we are creating a database connection (as we don't want to create connection again and again.)
+
+21.@PreDestroy :- It is part of Bean Life cycle.
+		  Spring calls method annotated with @PreDestroy runs only once, just before Spring removes our bean from the application context
+		  For Example:- We can use @PreDestroy for closing database connection. 
+
+22.@PropertySource("classpath:propertyFileName") :- used to fetch data from property file.
+
+23.@PutMapping
+
+24.@Qualifier(Bean-Name) :- There may be a situation when you create more than one bean of the same type and want to wire only one of them with a property. In such cases, you can use the @Qualifier annotation along with @Autowired to remove the confusion by specifying which exact bean will be wired.
+
+25.@Query(value = "SQL Query", nativeQuery = true):- Used to fire sql query
+
+26.@Repository :- Indicates that a class is a repository.
+
+27.@RestController :- Indicates that the class is controller, which is used to handle restful services.
+		      Equivalent to @Controller+@ResponseBody.
+
+28.@RequestBody :- used for extracting data from body of object send from frontend.
+
+29.@RequestMapping("/url") :- by default it is Get method. Syntax:- @RequestMapping(path="/path-name",method = "RequestMethod.Get")
+
+30.@RequestParam("param")
+
+31.@ResponseBody :-  binds a method return value to the web response body. It is not interpreted as a view name. 
+
+32.@Service :- Tells Spring boot that the class belongs to service layer. Controller Class always calls a service class.
+
+33.@SpringBootApplication :- used to create spring boot application. It is equivalent to @SpringBootConfiguration, @ComponentScan, @EnableAutoConfiguration
+
+34.@SpringBootConfiguration :- It internally uses @Configuration, thus we can say that it is an implementation of @Configuration.
+
+35.@Table(name = "Table_Name") :- It only renames the table that will be created in database. See @Entity.
+
+36.@Value :- Helps us to use properties defined in application.properties.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+1. Difference between @Component & @Bean
+2. Difference between @Controller and @RestController.
+
+
+
+1. 
+a. @Component auto detects and auto configures the beans using classpath scanning whereas 
+   @Bean explicitly declares a single bean, rather than letting Spring do it automatically.
+b. @Component does not decouple the declaration of the bean from the class definition whereas 
+   @Bean decouples the declaration of the bean from the class definition.
+c. @Component is a class level annotation whereas 
+   @Bean is a method level annotation and name of the method serves as the bean name.
+d. @Component need not to be used with the @Configuration annotation whereas 
+   @Bean annotation has to be used within the class which is annotated with @Configuration.
+e. We cannot create a bean of a class using @Component, if the class is outside spring container whereas 
+   we can create a bean of a class using @Bean even if the class is present outside the spring container.
+f. @Component has different specializations like @Controller, @Repository and @Service whereas 
+   @Bean has no specializations.
+
+2.
+If you know REST web services you know that the fundamental difference between a REST API and a web application.
+That is the response from a web application is generally view (HTML + CSS) because they are intended for human viewers.
+REST API just returns data in form of JSON or XML because most of the REST clients are programs. 
+This difference is also obvious in the @Controller and @RestController annotation.

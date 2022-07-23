@@ -1,0 +1,6 @@
+1. Hibernate Complete Project with Rest APi and performing CRUD Operations.
+2. Spring Boot + Spring Security + Hibernate Project. From Java Brains.
+3. Spring Boot + Spring Security (Using JWT) + Hibernate Project. From Java Brains.
+4. Implement Login with Facebook and Github using OAuth. From Java Brains.
+5. Microfrontend Project.
+6. Dashboard Projects in react js.(We can cover project 5 & 6 in one project.)

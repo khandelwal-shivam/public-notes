@@ -1,0 +1,84 @@
+what is design pattern
+A design pattern is a well proved solution for solving a particular solution.
+They are programming language independent.
+
+Design pattern are divided into different types which are further divided into sub-parts:
+1. Creational Design pattern - They are concerned with method of creating objects. They are preferred during the process of class-initiation.
+	a. Factory Pattern.
+	b. Abstract Factory Pattern
+	c. Singleton Pattern
+	d. Prototype Pattern
+	e. Builder Pattern
+	f. Object pool Pattern
+
+2. Structural Design Pattern - They deal with composition of classes and objects which form larger structures. They simplify the structure by identifying the relationship b/w classes and objects.
+	a. Adapter Pattern
+	b. Bridge Pattern
+	c. Composite Pattern
+	d. Decorator Pattern
+	e. Facade Pattern
+	f. Flyweight Pattern
+	g. Proxy Pattern
+
+3. Behavioural Design Pattern - They are concerned with interaction and responsibility of objects. The interaction b/w the objects should be in such a way that they can easily talk to each other and still should be loosely coupled.
+	a. Chain of Responsibility Pattern
+	b. Command Pattern
+	c. Interpreter Pattern
+	d. Iterator Pattern
+	e. Mediator Pattern
+	f. Memento Pattern
+	g. Observer Pattern
+	h. State Pattern
+	i. Strategy Pattern
+	j. Template Pattern
+	k. Visitor Pattern.
+
+4. JEE Design Pattern - They are concerned with providing solutions to the Java-EE based applications and framework.
+	a. MVC Design Pattern
+	b. Dependency Injection Pattern
+	c. DAO Design Pattern
+	d. Business delegate Pattern
+	e. Intercepting Filter Pattern
+	f. Service Locator Pattern
+	g. Transfer Object Pattern
+
+-------------------------------------------------------Creational Design Pattern-------------------------------------------------------
+
+1. Factory Pattern
+It says that just "define an interface or abstract class for creating an object but let the sub classes decide which class to instantiate".
+In other words sub classes are responsible to create the instance of class.
+It is also known as virtual constructor.
+It promotes loose coupling.
+
+2. Singleton Pattern
+It says that  just "define a class that has only one instance and provides a global point of access to it".
+In other words, a class must ensure that one single instance should be created and single object can be used by all other classes.
+
+
+
+-------------------------------------------------------Structural design Pattern---------------------------------------------------------
+
+1. Facade Design Pattern
+It says that just "provide a unified and simplified interface to a set of interfaces in a sub system, therefore it hide the complexities of sub system from the client".
+In other words Facade design pattern describes a higher level interface that makes a sub system easier to use.
+Practically, every Abstract Factory is a type of Facade.
+
+2. Adapter Design Pattern
+It says that just "convert the interface of a class into another interface that a client wants".
+In other words, providing the interface according to client requirement while using the services of a class with a different interface.
+It is also known as Wrapper.
+
+-------------------------------------------------------Behavioural Design Pattern---------------------------------------------------------
+
+
+1. Strategy Pattern
+It says that "define a family of functionality, encapsulate each one, and make them interchangeable".
+It is also called as Policy.
+
+2. Command Pattern
+It says that "encapsulate a request under an object as a command and pass it to invoker object. Invoker object looks for appropriate object which can handle this command and pass the command to corresponding object & that object executes the command".
+It is also known as Action or Transaction.
+
+3. Observer Design pattern
+It says that "just define one-to-one dependency so that when one object changes state, all its dependents are notified and updated automatically."
+It is also known as Dependents or Publish-Subscribe.

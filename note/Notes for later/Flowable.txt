@@ -1,0 +1,30 @@
+Flowable
+
+Flowable is used to create and deploy a business process.
+Flowable Engine dynamic BPMN process engine, with accompanying DMN decision table and CMMN case management engines, all written in Java.
+
+What is Business Process?
+Business Process is a set of tasks that, once completed in a defined order, accomplishes a defined objective. 
+Each task in a Business Process has clearly defined inputs and outputs. 
+These tasks may require human intervention or may be completely automated.
+
+OMG (Object Management Group) has defined a standard called Business Process Model and Notation (BPMN) for businesses to define and communicate their processes.
+The Flowable API fully supports creating and deploying BPMN 2.0 process definitions
+
+Read about flowable example from --> https://www.baeldung.com/flowable
+
+
+
+
+BPMN 2.0 -> It is a standard to define and communicate business processes.
+DMN -> Decision Model and Notation. It’s a standard approach for describing and modeling repeatable decisions within organizations to ensure that decision models are interchangeable across organizations
+DMN is for decision management. BPMN is for business process management.
+
+CMMN ->  Case Management Model and Notation
+
+
+Terms I need to be familiar with
+1. BPMN & BPM.
+2. DMN Diagrams/Tables (Decision Management).
+3. CMMN
+4. Event Streams(Kafka, RabbitMQ,JMS)

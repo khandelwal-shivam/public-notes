@@ -1,0 +1,24 @@
+  Bubble Sort
+	Best Case :- Ω(n)
+	Worst Case :- O(n^2)
+	Avg. Case :- θ(n^2)
+  Heap Sort
+	Best Case :- Ω(n log(n))
+	Worst Case :- O(n log(n))
+	Avg Case :- θ(n log(n))
+  Insertion Sort
+	Best Case :- Ω(n)
+	Worst Case :- O(n^2)
+	Avg Case :- θ(n^2)
+  Merge Sort
+	Best Case :- Ω(n log(n))
+	Worst Case :- O(n log(n))
+	Avg Case :- θ(n log(n))
+  Quick Sort
+	Best Case :- Ω(n log(n))
+	Worst Case :- O(n^2)
+	Avg Case :- θ(n log(n))
+ Selection Sort. 
+	Best Case :- Ω(n^2)
+	Worst Case :- O(n^2)
+	Avg Case :- θ(n^2)

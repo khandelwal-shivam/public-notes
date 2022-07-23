@@ -1,0 +1,272 @@
+CSS properties
+
+align-items : center;
+align-self : center;
+background : linear-gradient(to right, #1e5799 0%, #3ccdbb 0%, #16c9f6 100%);
+background-color
+background-repeat
+border : medium none|1px solid black;
+border-radius : 
+bottom : 
+box-sizing : border-box;
+box-shadow : 0 0 20px 0 rgba(0,0,0,0.9);
+clip-path
+color : 
+content : ""
+cursor: pointer;  cursor property defines how will the cursor look like.
+Difference between div and section
+display: flex | grid |inline-flex| inline-grid   (There are more than 20 values for display);
+flex-grow: specifies how much the item will grow relative to the rest of the flexible items inside the same container
+flex-direction : column| column-reverse|row|row-reverse;sets how flex items are placed in flex container. Default value is row. See Demo on w3Schools 
+font-family: 'Poppins', sans-serif;
+font-size : 0.9rem;
+font-weight : 400|bold;
+grid-gap: 10px;
+grid-template-columns: repeat(4, auto);
+height : 100%|100vh|auto;
+justify-content : space-between|center|space-around|end;
+justify-self : start;
+left : 0%;
+letter-spacing : 
+line-height: 1.6;
+margin : 
+margin-bottom : 25px;
+margin-top : 10px;
+max-height : 100%
+max-width: calc((100%) - 60px);
+object-fit : contain;
+opacity : 
+outline : none // outline is space outside of borders
+overflow : hidden;
+padding : 
+position: relative|absolute|Sticky|static|fixed; Always work with helper properties like left, right, top, bottom; watch Yahoo baba video on position
+right : 
+text-align : center;
+text-decoration : none;
+text-transform : uppercase|lowercase|capitalize
+top:
+transform : translateY(-20px); More Details below.
+transition : 0.3s ease; allows us to change property values smoothly 
+width : 100%
+z-index : -1; only work with position selector
+---------------------------------------------------------------------
+to align div with in div to center
+
+1.
+.parent_div{
+	position : relative;
+}
+
+.child_div {
+	position : absolute;
+	left : 50%;
+	top : 50%;
+	transform : translate(-50%,-50%);
+}
+
+2. Using flex box
+
+.parent_div{
+	display : flex;
+	justify-content : center; //will move the child div horizontally center
+	align-item : center; // will move the child div vertically center
+}
+.child_div{
+	// any property of child div
+}
+3. Using Grid
+
+.parent_div {
+	display : grid;
+	place-items : center;
+}
+.child_div{
+	// any property of child div
+}
+===========================================================================
+If Child Div over passes the parent div.
+
+try to set max-width and max-height.
+===========================================================================
+In a form, How to align all its inputs and buttons vertically
+<form>
+	<input type = "text">
+	<input type = "email>
+	<input type = "password">
+	<button>Submit<button>
+</form>
+
+form{
+	display:flex;
+	flex-direction: column
+}
+
+===========================================================================
+Declaring variable in css: 
+Variable in css have 2 scopes 
+1. Global Scope
+2. Local Scope
+
+Global Scope variable are selected in root selector.
+
+e.g.
+
+:root {
+	--primary : #ffffff;
+	--secondary : #C0C0C0;
+}
+
+Local Variable are selected using var() function
+
+e.g.
+
+button {
+	--blue : #0000ff;
+	background-color : var(--blue);
+	border : 1px dashed var(--blue);
+}
+===========================================================================
+Advanced Css Selectors
+1. Simple Selectors
+	a. Type Selector eg p{color:red;}
+	b. Class Selector eg .body{color:red}
+	c. ID Selector eg. #main-div{color:red}
+	d. Universal Selector eg. *{color:red}
+
+2. Combinator Selectors
+	a. Descendant Selectors(space) - They have parent child relationship.
+		eg. .box p {color:red} Target <p> inside .box
+		eg. p span {color:red} Target <span> inside <p>
+		eg. div p span {color:red} Target <span> which is inside <p> which is in turn inside <div> 
+
+	b. Direct Child Selectors or Child Selectors(>)
+		eg. ul>li {color:red} Target's <li> which are direct child of <ul>
+		eg. #box>p {color:red} Target's <p> which are direct child of box id
+
+	c. Adjacent Sibling Selectors(+) - Target an element that is directly after another specific element
+		eg. div+p {color:red} Target <p> which is immediately next to <div>. Both <div> and <p> should have same parent 
+		eg. ul+p {color:green} Target <p> which is immediately next to <ul>. 
+
+	d. General Sibling Selectors(~) - Target all elements that are next siblings of a specified element
+		eg. div ~ p { background-color: yellow} Target all <p> elements that are next siblings of <div> elements. Both <div> and <p> should have same parent 
+
+3. Attribute Selectors - style HTML elements/tags that have specific attributes or attribute values.
+	a. A[attr] - Target all elements which have a specific attribute
+		eg. a[target] {background-color: yellow} Target all <a> elements with "target" attribute
+
+	b. A[attr=val] - Target elements with a specified attribute and value.
+		eg. input[type="password"] {background-color: yellow} - Target all <input> elements with type = "password" attribute
+
+	c. A[attr^=val] - Target elements whose attribute value begins with a specified value.
+		eg. img[alt^="Image"] {border: 1px solid black} - Target all <img> element's 'alt' attribute value that begins with "Image"
+
+	d. A[attr|=val] - not used much.
+
+	e. A[attr$=val] - Target elements whose attribute value ends with a specified value.
+		eg. img[href$=".png"] {border: 1px solid black} - Target all <img> element's 'alt' attribute value that ends with "Image"
+
+	f. A[attr*=val] - Target elements which contains a specified value anywhere in attribute value. 
+		eg. input[placeholder*="Enter"] {box-shadow : 0 0 20px 0 rgba(0,0,0,0.9)} - Target all <input> in which placeholder contains "Enter" any where within.
+
+	g. A[attr~=val] - not used much.
+
+4. Pseudo Classes & Pseudo Elements
+	a. pseudo-classes are used to define a special state of an element. List of mostly used pseudo classes are given below.
+		syntax:- selector:pseudo-class {property: value}
+
+	b. pseudo-elements are used to style specified parts of an element. There are 6 different types of pseudo elements.
+		i. ::after :- used to insert some content after the content of an element.
+
+		ii. ::before :- used to insert some content before the content of an element.
+
+		iii. first-letter :- used to add a special style to the first letter of a text.
+
+		iv. first-line :- Used to add a special style to the first line of a text.
+
+		v. selection :- matches the portion of an element that is selected by a user.
+
+		vi. placeholder :- 
+
+
+===========================================================================
+only samjh ne k liye --> pseudo class means agar yeh hota hai
+Types Of pseudo-classes: There are 32 types of pseudo selectors.(they are prefixed by :)
+:first-child
+:last-child
+:hover
+:focus
+:root --> matches root element of 
+:enabled
+:disabled
+
+eg- div:hover p {
+	color: red;
+} --> It means ki agar div par hover hota hai toh div k andar jo p tag hai uska color red kar do.
+
+pseudo elements : thet are prefixed by (::)
+
+differnece between 
+===========================================================================
+CSS Transform
+2D Transform - There are 6 types of 2D Transform. These transformations are performed wrt origin
+	1. rotate(angle) - rotate a giv by given angle
+	2. Translate - moves an element from its current position (according to the parameters given for the X-axis and the Y-axis)
+		a. translate(x,y)
+		b. translate(x)
+		c. translate(y)
+	3. Scale - increases or decreases the size of an element (according to the parameters given for the width and height).
+		a. scale(x,y)
+		b. scaleX(x)
+		c. scaleY(y)
+	4. skew (Tircha) - Skew a div by given degrees
+		a. skew(x-angle,y-angle)
+		b. skewX(angle)
+		c. skewY(angle)
+	5. matrix(n,n,n,n,n,n) - combines all the 2D transform methods into one. syntax - matrix(scaleX(),skewY(),skewX(),scaleY(),translateX(),translateY())
+	6. none - default value
+
+These 2D Transform are often used with 
+transform-origin(x,y) - They are used to change the origin position.
+Transitions also can be used with 2D transform to create amazing animation effects. 
+-----------------------------------------------------------------------------------------------------------------------------------
+3D Transform - 
+	1. Rotate
+		a. rotateX(angle)
+		b. rotateY(angle)
+		c. rotateY(angle)
+		d. rotate3d(x,y,z,angle)
+	2. Translate
+		a. translateZ(z)
+		b. translate3d(x,y,z)
+	3. Scale
+		a. scaleZ(z)
+		b. scale3d(x,y,z)
+	4. perspective(n)
+	5. matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)
+
+
+===========================================================================
+bootstrap Classes
+
+col-lg-4 
+col-md-4 
+col-12
+container
+fixed-top
+font-weight-bold
+image-fluid
+img-thumbnail
+navbar 
+navbar-expand-lg 
+offset
+row
+text-center
+
+
+
+
+
+================================================================
+
+
+
