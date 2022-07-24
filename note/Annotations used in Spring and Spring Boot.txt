@@ -1,6 +1,6 @@
 1.@AutoWired : - Autowiring is used for automatic dependency injection. In other words it enables us to inject the object dependency implicitly.
 		 It internally uses setter or constructor injection
-
+ 
 2.@Bean :- It is a method level annotation. 
 	   It tells that a method produces a bean to be managed by the Spring container.
 
