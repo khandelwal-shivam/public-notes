@@ -305,6 +305,8 @@ f1.andThen(f2).andThen(f3).andThen(f4).apply(Inputs);
 	
 32. Stream API.
 	It is special Iterator class that allow processing collection of Objects in a functional manner.
+	In simple words : Stream is sequence of Objects which supports various methods that gives desired result.
+						Stream API is used to process these collection of Objects.
 	
 33. Optional in java 8
 	Optional is a container object which may or may not contain a non-null value.
