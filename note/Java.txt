@@ -21,11 +21,14 @@ list1.stream().filter(i=>i%2==0).collect(Collectors.toList())
 Methods
 stream().filter
 stream().map
-stream().reduce
+stream().reduce --> They are terminal methods
 stream().empty
 stream().sorted ---> Sort by default configuration. If we want custom sorting then we can use comparator.
 stream().forEach
-stream().collect ----> Allow us to identify whether we want to collect as list, set, or MAP, via Collectors.toList(), Collectors.toSet(), COllectors.toMap()
+stream().collect ----> It is terminal method. Allow us to identify whether we want to collect as list, set, or MAP, via Collectors.toList(), Collectors.toSet(), COllectors.toMap()
+By default .stream().collect(Collectors.groupingBy(Employee:: getDepartment)) returns a map of <String, List<Employee>>. String because getDepartment returns String and after groupingBy we will get list of Employees.
+			.stream().collect(Collectors.groupingBy(Person::getState,
+                                                      Collectors.groupingBy(Person::getCity))); will return Map<String,Map<String,List<Person>>>
 ----------------------------------------------------------------------------------------------------------------------------------
 resttemplate methods(RestTemplate rt = new RestTemplate())
 # rt.getForObject(url,PayloadOfResponse.class)-> Returns the payload of type PayloadOfResponse.class. The Response is POJO.
