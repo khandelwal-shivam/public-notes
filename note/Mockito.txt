@@ -1,0 +1,82 @@
+Mockito Notes by Dinesh Varyani
+
+
+What is Unit Test?
+
+Unit Test is a piece of code written by developer to test certain functionality of code.
+The class which we want to trst is called as Class Under Test.
+The Method which we want to test is called as Method Under Test.
+
+A unit Test instantiate class under test, execute method under test and verifies that it worked as expected.
+
+
+A good unit test should be
+a. Easy to Test.
+b. Easy to Read.
+c. Reliable. (it should not happen that one unit test is running on one machine and failing on another)
+d. Fast.
+e. Isolated. Class Under Test should not be dependent on network calls, database calls, any services, or other external dependencies.
+All these external dependencies should be removed from unit tests by replacing real objects with there fake replacements called as test doubles.
+------------------------------------------------------------------------------------------------------------------------------
+
+What are Test Doubles?
+It is generic term for any case where we replace a production object for testing purpose.
+We need test double because sometime it is not possible to unit test a code because of the unavailability of external dependency.
+For Example: 
+if code under test is dependent on database operations, it is not possible to unit test the code unless the database is available.
+or 
+if code under test is dependent on external services, it is not possible to unit test the code unless the network is available.
+or 
+if code under test is sending an email, it is not good to send email every time test are run. 
+
+
+Different Types Of test doubles.
+a. Dummy
+b. Fake
+c. Stub
+d. Mock
+e. Spy
+--------------------------------------------------------------------------------------------------------------------------
+Course Prerequisites
+
+Tools Required
+a. Java 8 or above.
+b. JUnit 5 or JUnit 4.
+c. Maven Gradle.
+d. IDE(Eclipse or Intellij)
+e. Mockito 3
+
+
+Open Intellij --> Create New Project --> Choose Maven and java version as 8 or above --> Click Next Button --> 
+Provide the location --> in artifact Coordinates keep every thing as it is --> Click Create Project.
+
+
+Now in POM.xml we need to add dependencies.
+
+----------------------------------------------------------------------------------------------------------------------------
+
+Fake Test Doubles
+
+Instead of actual object(production object) we use fake objects, Fake objects have working implementation, but not as production objects.
+For Example: Instead of actual production database, we can use an in memory database, hashmap or list.
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+Dummy Test Doubles
+When we do unit testing for class under test, class may be dependent on external dependencies and it may happen that when we are testing one of the methods for class under test one or two depndencies does not play any role.
+So these 2 dependencies does not play any role but still they come into picture. so while unit testing we create dummy test double out of it.
+Dummy Test Double does not have any business logic.
+Dummy Test double are used only for code to compile.
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Stub Test Double
+Stub Test Doubles are predefined answers(hardcored answers) to method executions made during the test.
+In larger picture Stub Test double act as a replacement for our external dependency and whatever method is executed on external dependency, 
+instead of calling that external dependency the stub is called and some of the code is hardcoded in that particular method which does something and finally returns us back expcted response.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Spy Test Double
+Spy Test Double Keeps and eye on external dependency and it records what all interactions have been made with external dependency.
+Spy Objects are very similar to Stub, but they record information about how they are executed.
