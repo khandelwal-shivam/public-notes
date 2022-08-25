@@ -39,20 +39,9 @@ e. Spy
 --------------------------------------------------------------------------------------------------------------------------
 Course Prerequisites
 
-Tools Required
-a. Java 8 or above.
-b. JUnit 5 or JUnit 4.
-c. Maven Gradle.
-d. IDE(Eclipse or Intellij)
-e. Mockito 3
-
-
-Open Intellij --> Create New Project --> Choose Maven and java version as 8 or above --> Click Next Button --> 
-Provide the location --> in artifact Coordinates keep every thing as it is --> Click Create Project.
-
-
-Now in POM.xml we need to add dependencies.
-
+Create a new SPring Boot Application
+----------------------------------------------------------------------------------------------------------------------------
+Creating Test double without Mockito
 ----------------------------------------------------------------------------------------------------------------------------
 
 Fake Test Doubles
@@ -80,3 +69,28 @@ instead of calling that external dependency the stub is called and some of the c
 Spy Test Double
 Spy Test Double Keeps and eye on external dependency and it records what all interactions have been made with external dependency.
 Spy Objects are very similar to Stub, but they record information about how they are executed.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Mock Test Double
+It is very similar to spy....with the only difference that mock object records method calls on it, and verifies later that the recorded calls match and assert and behaviour verification is done at mock object.
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Mocking
+Mocking helps us in testing functionality of class in isolation.
+Advantages of Mocking
+1. It does not require database connection, communicating to external servers or going over network to test a functionality.
+2. Mock Objects simulate real service by tasking in actual input and returning back expected output.
+
+Mockito is testing framework for java.
+It allow us to creation of test doubles objects (mock objects) for unit tests. 
+It uses Java reflection in order to create mock objects.
+
+Benefits Of Mockito
+
+1. Save developers from writing test doubles or mock objects on their own.
+2. Provide support for unit testing.
+3. Help us in returning configured response.
+4. It can check order of method called and number of time a method being called.
+5. Annotation Support.
