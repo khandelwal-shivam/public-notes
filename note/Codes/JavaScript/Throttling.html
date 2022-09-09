@@ -1,0 +1,59 @@
+<!-- <html>
+    <head>
+        <title>Throttling</title>
+    </head>
+    <body>
+        <input type = "text" id = "throttling"/>
+        <script>
+            const throttleFunc = (callbackfunc,delay) => {
+                return (...args) => {
+                    setTimeout(()=>{
+                        callbackfunc();
+                    },delay);
+                }
+            }
+            let inputBox = document.getElementById("throttling");
+            inputBox.addEventListener("input",throttleFunc(()=>{console.log("throttling....")},3*1000));
+        </script>
+    </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>
+    JavaScript | With Throttling
+  </title>
+</head>
+<body>
+  <button id="throttle">Click Me</button>
+  <script>
+    const btn=document.querySelector("#throttle");
+     
+    // Throttling Function
+    let throttleTimer;
+    const throttleFunction=(callbackfunc, delay)=>{
+        if(throttleTimer)return;
+        throttleTimer = true;
+        setTimeout(()=>{
+            callbackfunc();
+            throttleTimer = false;
+        },delay);
+    //   let prev = 0;
+    //   return (...args) => {
+    //     let now = new Date().getTime();
+    //     if(now - prev> delay){
+    //       prev = now;
+    //       return func(...args); 
+    //     }
+    //   }
+    }
+    btn.addEventListener("click", throttleFunction(()=>{
+      console.log("button is clicked")
+    }, 5000));
+  </script>
+</body>
+</html>

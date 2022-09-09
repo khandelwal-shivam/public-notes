@@ -565,6 +565,34 @@ Finally, the event bubbles up through the target's ancestors until the root elem
 This mechanism is named event propagation
 More at https://javascript.plainenglish.io/3-phases-of-javascript-event-2ff09aa76b03
 --------------------------------------------------------------------------------------------------------------------------------------------------
+Javascript Argument Object (from w3schools)
+
+JavaScript functions have a built-in object called the arguments object.
+The argument object contains an array of the arguments used when the function was called (invoked).
+------------------------------------------------------------------------------------------------------------------------------------
+setInterval
+The setInterval() method calls a function at specified intervals (in milliseconds).
+The setInterval() method continues calling the function until clearInterval() is called, or the window is closed.
+myInterval = setInterval(function, milliseconds);
+
+clearInterval
+The clearInterval() method clears a timer set with the setInterval() method.
+myInterval = setInterval(function, milliseconds);
+
+setTimeOut
+The setTimeout() method calls a function after a number of milliseconds.
+myTimeout = setTimeout(function, milliseconds);
+
+clearTimeout
+The clearTimeout() method clears a timer set with the setTimeout() method.
+clearTimeout(myTimeout);
+
+blur
+The blur() method removes focus from a window.
+
+focus
+The focus() method sets focus to a window.
+---------------------------------------------------------------------------------------------------------------------------------
 JavaScript Array methods (YT Playlist -> https://www.youtube.com/playlist?list=PLhfxuQVMs-nyC0mc_2pQQpe94RroEDBg5)
 1. forEach()
 2. filter()
@@ -837,8 +865,7 @@ Default is array length.
 
 24. isArray()
 25. from()
-
-
+----------------------------------------------------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------------------------------------------------------------------------
 	loadash important methods

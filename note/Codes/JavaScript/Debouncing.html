@@ -1,0 +1,19 @@
+<html> 
+<body>
+    <input 
+    type = "text" 
+    id = "debounce"
+    />
+<script>
+var inputBox = document.getElementById("debounce");
+const debounceFunc = (callbackfunc, delay) => {
+    let debounceTimer;
+    return function(...args) {
+            if(debounceTimer)clearTimeout(debounceTimer)
+            debounceTimer = setTimeout(() => {callbackfunc()}, delay);
+    }
+} 
+inputBox.addEventListener('input', debounceFunc(()=> console.log("printing...."),2*1000));
+</script>
+</body>
+</html>
