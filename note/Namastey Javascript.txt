@@ -549,7 +549,14 @@ Array.prototype.filterAlbums = function(callback, context) {
   }
   return arr;
 }
+******************************************
+Polyfills for call
 
+******************************************
+Polyfills for apply
+
+*****************************************
+Polyfills for bind
 --------------------------------------------------------------------------------------------------------------------------------------------------
 Phases Of JavaScript Event.
 1. Capturing Phase
