@@ -1,7 +1,7 @@
 CSS properties
 
-align-items : center;
-align-self : center;
+align-items : center; | controls alignment of all items. move content vertically.
+align-self : center; | controls alignment of an individual flex item.
 background : linear-gradient(to right, #1e5799 0%, #3ccdbb 0%, #16c9f6 100%);
 background-color
 background-repeat
@@ -16,15 +16,18 @@ content : ""
 cursor: pointer;  cursor property defines how will the cursor look like.
 Difference between div and section
 display: flex | grid |inline-flex| inline-grid   (There are more than 20 values for display);
+flex: 1; CSS shorthand property sets how a flex item will grow or shrink to fit the space available in its flex container.
 flex-grow: specifies how much the item will grow relative to the rest of the flexible items inside the same container
 flex-direction : column| column-reverse|row|row-reverse;sets how flex items are placed in flex container. Default value is row. See Demo on w3Schools 
+flex-wrap: if for display: flex; content of div overflow the div then it move the over flowing content into next line.
 font-family: 'Poppins', sans-serif;
 font-size : 0.9rem;
 font-weight : 400|bold;
+gap: 10px; It is used in parent div when we want the child div to be seperated from each other by 10px.
 grid-gap: 10px;
 grid-template-columns: repeat(4, auto);
 height : 100%|100vh|auto;
-justify-content : space-between|center|space-around|end;
+justify-content : space-between|center|space-around|end; some time need to put width to 100%. move div horizontally
 justify-self : start;
 left : 0%;
 letter-spacing : 
@@ -34,20 +37,20 @@ margin-bottom : 25px;
 margin-top : 10px;
 max-height : 100%
 max-width: calc((100%) - 60px);
-object-fit : contain;
+object-fit : contain;// specify how an <img> or <video> should be resized to fit its container.used frequently with width, height, border-radius
 opacity : 
 outline : none // outline is space outside of borders
 overflow : hidden;
 padding : 
 position: relative|absolute|Sticky|static|fixed; Always work with helper properties like left, right, top, bottom; watch Yahoo baba video on position
 right : 
-text-align : center;
+text-align : center; specifies the horizontal alignment of text in an element. analogus to display: flex; justify-content: center
 text-decoration : none;
 text-transform : uppercase|lowercase|capitalize
 top:
 transform : translateY(-20px); More Details below.
 transition : 0.3s ease; allows us to change property values smoothly 
-width : 100%
+width : 100% | max-content ---> Adjust width to the content size.
 z-index : -1; only work with position selector
 ---------------------------------------------------------------------
 to align div with in div to center
@@ -83,6 +86,8 @@ to align div with in div to center
 .child_div{
 	// any property of child div
 }
+===========================================================================
+If child div's position is absolue then parent div should always have position as relative.
 ===========================================================================
 If Child Div over passes the parent div.
 
@@ -205,7 +210,6 @@ eg- div:hover p {
 
 pseudo elements : thet are prefixed by (::)
 
-differnece between 
 ===========================================================================
 CSS Transform
 2D Transform - There are 6 types of 2D Transform. These transformations are performed wrt origin
@@ -267,6 +271,38 @@ text-center
 
 
 ================================================================
+some shortcuts
+df -> display: flex;
+p20 -> padding: 20px;
+w20 -> wigth: 20px;
+jc -> justify-content
+h100 -> height: 100px;
+fz14 -> font-size: 14px;
 
+================================================================
+.A{
+ &. B{
+	
+}
+}
+is equivalent to <element class = "A B">
+-------------------
+.A.B {
 
+} 
+is equivalent to <element class = "A B">
+-------------------
+.A{
+.B{
 
+}
+}
+is equivalent to 
+<element class = "A">
+	<element class = "B"></element>
+</element>
+-------------------
+.A{
+	&:hover
+}
+is eqivalent to <element class = "A" :hover>
