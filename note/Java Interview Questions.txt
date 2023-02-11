@@ -292,9 +292,9 @@ f1.andThen(f2).andThen(f3).andThen(f4).apply(Inputs);
 30. What are Consumer Functional Interface in Java8.
 	It is predefined Functional Interface which never return anything (never supply), they just consume.
 	The only abstract method is accept.
-	c1.andThen(c2).apply(Input);  - first c1 then c2.
+	c1.andThen(c2).accept(Input);  - first c1 then c2.
 	Multiple consumers can be chained together like :
-	c1.andThen(c2).andThen(c3).andThen(c4).apply(Inputs);
+	c1.andThen(c2).andThen(c3).andThen(c4).accept(Inputs);
 	
 31. What is Supplier Functional Interface in Java 8.
 	It is functional Interface which does not takes any input but it will always supply an object.
