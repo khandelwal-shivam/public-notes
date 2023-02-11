@@ -140,17 +140,17 @@ Advanced Css Selectors
 
 2. Combinator Selectors
 	a. Descendant Selectors(space) - They have parent child relationship.
-		eg. .box p {color:red} Target <p> inside .box
-		eg. p span {color:red} Target <span> inside <p>
-		eg. div p span {color:red} Target <span> which is inside <p> which is in turn inside <div> 
+		eg. .box p {color:red} Target all <p> inside .box
+		eg. p span {color:red} Target all <span> inside <p>
+		eg. div p span {color:red} Target all <span> which is inside all <p> which is in turn inside <div> 
 
 	b. Direct Child Selectors or Child Selectors(>)
 		eg. ul>li {color:red} Target's <li> which are direct child of <ul>
 		eg. #box>p {color:red} Target's <p> which are direct child of box id
 
 	c. Adjacent Sibling Selectors(+) - Target an element that is directly after another specific element
-		eg. div+p {color:red} Target <p> which is immediately next to <div>. Both <div> and <p> should have same parent 
-		eg. ul+p {color:green} Target <p> which is immediately next to <ul>. 
+		eg. div+p {color:red} Target first <p> which is immediately next to <div>. Both <div> and <p> should have same parent 
+		eg. ul+p {color:green} Target first <p> which is immediately next to <ul>. 
 
 	d. General Sibling Selectors(~) - Target all elements that are next siblings of a specified element
 		eg. div ~ p { background-color: yellow} Target all <p> elements that are next siblings of <div> elements. Both <div> and <p> should have same parent 

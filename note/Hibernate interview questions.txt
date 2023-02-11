@@ -1,6 +1,6 @@
 1. What is Hibernate.
 
-Hibernate is an object-relational mapping (ORM) that basically allows a developer to map POJO - plain old Java objects - to relational database tables.
+Hibernate is an object-relational mapping (ORM) tool that maps POJO - plain old Java objects - to relational database tables.
 Hibernate is implementation of JPA.
 
 2. What is ORM.
