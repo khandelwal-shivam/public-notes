@@ -114,7 +114,7 @@ React Reconciler is a part of diffing algo. React Fiber is a reimplementation of
 It was needed to be re-written because it is based on recursion (thus was called React Stack) and need further improvisations.
 
 15. Hooks
-Hooks are the functions which "hook into" or connect to React state and lifecycle features from function components.
+Hooks are the functions which "hook into" or connect to React state and lifecycle features for function components.
 
 16. key prop
 Keys help React identify which items have changed, are added, or are removed.
@@ -237,8 +237,7 @@ axios.post(URL, {
         console.log(response.data);
       });
   }
-Axios is better than fetch. 
-I have used both and found axios to be better than fetch because 
+Axios is better than fetch because 
 	Axios has better error handling. It throws 400 and 500 range errors for us. 
 	Unlike the Fetch API, where you have to check the status code and throw the error yourself.
 	
