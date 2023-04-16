@@ -98,21 +98,20 @@ public class BinaryTreeImplementation {
                 current = current.left;
             } else {
                 TreeNode temp = stack.peek().right;// checking whether the last pushed element into stack has right node or not
-
-                if(temp == null) { // this situation arises when last element pushed into stack is leaf node
-
+                if(temp != null) {
+                    // this will be executed when left subtree is null and right subtree is present
+                    current = temp;
+                } else {
+                    // this situation arises when last element pushed into stack is leaf node
                     temp = stack.pop();
                     System.out.print(temp.data + " ");
-                    // Using while loop we are checking whether the last popped leaf node (temp) was left node or right node
+                    // Using Second while loop we are checking whether the last popped leaf node (temp) was left node or right node
                     // Condition in while loop will be true when we have visited both left and right node and want to print the parent.
                     // temp == stack.peek().right will be true when temp is right child of its parent.
                     while(!stack.isEmpty() && temp == stack.peek().right) {
                         temp = stack.pop();
                         System.out.print(temp.data+ " ");
                     }
-                } else {
-                    // this will be executed when left subtree is null and right subtree is present
-                    current = temp;
                 }
             }
         }

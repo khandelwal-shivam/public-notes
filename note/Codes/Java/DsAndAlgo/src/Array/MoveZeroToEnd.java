@@ -4,7 +4,7 @@ public class MoveZeroToEnd {
 
     public static void printArray(int[] arr) {
         for(int i = 0; i<arr.length; i++){
-            System.out.println(" "+arr[i]);
+            System.out.print(" "+arr[i]);
         }
     }
     public static void moveZero(int[] arr) {
@@ -23,6 +23,7 @@ public class MoveZeroToEnd {
     public static void main(String[] args){
         int[] arr = {8, 1, 0 , 2, 1, 0, 3};
         printArray(arr);
+        System.out.println('\n');
         moveZero(arr);
         printArray(arr);
     }
