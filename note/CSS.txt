@@ -306,3 +306,19 @@ is equivalent to
 	&:hover
 }
 is eqivalent to <element class = "A" :hover>
+
+Media Queries
+There are 4 types of media types
+1. all : This is the default media type and applies to all devices, including screen, print, and speech media.
+2. print : Targets printers when the page is printed. You can use this to apply specific styles for the printed version of your web page.
+3. screen : Targets devices with screens like desktop computers, laptops, tablets, and smartphones.
+4. speech : Targets speech synthesizers or screen readers used by people with disabilities. You can use this to create styles suitable for auditory output.
+ 
+
+max-width <
+min-width >
+official bootstarp5 break point chart
+mobile 576px
+tablet 768px
+laptop 992px
+desktop 1200px 
