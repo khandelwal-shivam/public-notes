@@ -25,9 +25,8 @@
 
 10.@EnableWebSecurity :-  Used in Spring Security.
 
-11.@Entity(name = "course"):- It maps a java class to a table stored in database. 
-			      Entity name can be and can not be equal to table name in database. 
-			      If @Table annotation is not used then class name will be equal to entity name. 
+11.@Entity(name = "course"):- It marks a Java class as an entity, which means instances of this class represent persistent objects that need to be stored in a database.
+			      It Maps Java class to the table 
 
 12.@GeneratedValue(strategy= GenerationType.Auto) :- It is used to automatically generate the value specially for id. 
 
@@ -80,7 +79,8 @@
 
 34.@SpringBootConfiguration :- It internally uses @Configuration, thus we can say that it is an implementation of @Configuration.
 
-35.@Table(name = "Table_Name") :- It only renames the table that will be created in database. See @Entity.
+35.@Table(name = "Table_Name") :- It is used to customize the database table settings associated with an entity.
+When we use @Entity without specifying @Table, Hibernate will create a table with a name that matches the class name. See @Entity.
 
 36.@Value :- Helps us to use properties defined in application.properties.
 
