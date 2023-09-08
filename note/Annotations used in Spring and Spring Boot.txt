@@ -13,7 +13,7 @@
 
 4.@ComponentScan(basePackages = "package name") :- Scan/Checks all component in the given package name
 
-5.@Configuration:- Used In Conjunction with @Bean.
+5.@Configuration:- Indicates that a class has bean defination methods. Used In Conjunction with @Bean.
 
 6.@Controller :- Indicates that the class is controller. It is used for traditional spring MVC framework Controller.
 
