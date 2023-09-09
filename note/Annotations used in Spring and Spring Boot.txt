@@ -1,3 +1,5 @@
+0.@Access: used for defining the access type of either field or property.Default value is field.
+
 1.@AutoWired : - Autowiring is used for automatic dependency injection. In other words it enables us to inject the object dependency implicitly.
 		 It internally uses setter or constructor injection
  
@@ -17,12 +19,13 @@
 
 6.@Controller :- Indicates that the class is controller. It is used for traditional spring MVC framework Controller.
 
+6.1 @Data:-
 7.@Embeddable :- It is used to attach the one class into another class.
 
 8.@EnableAutoConfiguration :- Automatically configures specific class or bean from classpath or any other way by which we want to configure.
 
 9.@EnableEurekaServer :- In microservices it enables the eureka server.
-
+9.1 @EnableTransactionManagement
 10.@EnableWebSecurity :-  Used in Spring Security.
 
 11.@Entity(name = "course"):- It marks a Java class as an entity, which means instances of this class represent persistent objects that need to be stored in a database.
@@ -37,6 +40,7 @@
 15.@Import
 
 16.@LoadBalanced
+@Lob : Tells hibernate that it is large object not simple object.
 
 17.@Param("any custom variable") java-variable :- used to bind java-variable with custom variable. By this value in java-variable will be passed on to custom variable. Used mainly with @PathVariable
 
@@ -82,6 +86,9 @@
 35.@Table(name = "Table_Name") :- It is used to customize the database table settings associated with an entity.
 When we use @Entity without specifying @Table, Hibernate will create a table with a name that matches the class name. See @Entity.
 
+@Temporal : Used with date field to tell hibernate the format in which the date needs to be saved.
+35.0 @Transient : tells hibernate not to save this field
+35.1 @Transactional
 36.@Value :- Helps us to use properties defined in application.properties.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
