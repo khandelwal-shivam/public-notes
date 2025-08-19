@@ -38,6 +38,7 @@
 14.@Id :- It is used to mark a primary key for a table in the entity.
 
 15.@Import
+15.1 @ModelAttribute
 
 16.@LoadBalanced
 @Lob : Tells hibernate that it is large object not simple object.
